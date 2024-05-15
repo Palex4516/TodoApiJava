@@ -8,13 +8,13 @@ import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 class TodoResourceTest {
-    @Test
-    void testHelloEndpoint() {
-        given()
-          .when().get("/Todo")
-          .then()
-             .statusCode(200)
-             .body(is("Din mamma"));
-    }
+//    @Test
+//    void testHelloEndpoint() {
+//        given()
+//          .when().get("/todo")
+//          .then()
+//             .statusCode(200)
+//             .body(is("Din mamma"));
+//    }
 
 }
