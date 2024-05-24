@@ -1,6 +1,8 @@
 package org.example.clients;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.example.generated.ApiClient;
 import org.example.generated.ApiException;
 import org.example.generated.client.TodoItemsApi;
@@ -12,11 +14,15 @@ import java.util.List;
 @ApplicationScoped
 public class TodoClient {
 
-    private final TodoItemsApi todoApi;
+    @ConfigProperty(name = "todo-api.url")
+    String todoUrl;
 
-    TodoClient() {
+    private TodoItemsApi todoApi;
+
+    @PostConstruct
+    void init() {
         ApiClient apiClient = new ApiClient();
-        apiClient.updateBaseUri("http://localhost:5130");
+        apiClient.updateBaseUri(todoUrl);
         todoApi = new TodoItemsApi(apiClient);
     }
 

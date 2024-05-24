@@ -51,11 +51,11 @@
         <!--            <groupId>io.quarkus</groupId>-->
         <!--            <artifactId>quarkus-rest</artifactId>-->
         <!--        </dependency>-->
-                <dependency>
-                    <groupId>org.openapitools</groupId>
-                    <artifactId>jackson-databind-nullable</artifactId>
-                    <version>0.2.6</version>
-                </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.6</version>
+        </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>
@@ -65,6 +65,10 @@
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-config-yaml</artifactId>
         </dependency>
     </dependencies>
 
@@ -83,6 +87,10 @@
                         </goals>
                         <configuration>
                             <inputSpec>openapi/todoapi_openapi.json</inputSpec>
+                            <output>${project.build.directory}/generated-sources/openapi-generator-maven-plugin</output>                            
+                            <apiPackage>org.example.generated.client</apiPackage>
+                            <modelPackage>org.example.generated.models</modelPackage>
+                            <!--<invokerPackage>org.example.generated.invokers</invokerPackage>-->
                             <generatorName>java</generatorName>
                             <generateApis>true</generateApis>
                             <generateApiTests>false</generateApiTests>
@@ -90,9 +98,6 @@
                             <generateModelTests>false</generateModelTests>
                             <generateSupportingFiles>true</generateSupportingFiles>
                             <configOptions>
-<!--                                <packageName>org.example.generated</packageName>-->
-                                <modelPackage>org.example.generated.models</modelPackage>
-                                <apiPackage>org.example.generated.client</apiPackage>
                                 <library>native</library>
                                 <serializationLibrary>jackson</serializationLibrary>
                                 <useJakartaEe>true</useJakartaEe>
@@ -127,16 +132,16 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
-<!--            <plugin>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>${surefire-plugin.version}</version>-->
-<!--                <configuration>-->
-<!--                    <systemPropertyVariables>-->
-<!--                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>-->
-<!--                        <maven.home>${maven.home}</maven.home>-->
-<!--                    </systemPropertyVariables>-->
-<!--                </configuration>-->
-<!--            </plugin>            -->
+            <!--            <plugin>-->
+            <!--                <artifactId>maven-surefire-plugin</artifactId>-->
+            <!--                <version>${surefire-plugin.version}</version>-->
+            <!--                <configuration>-->
+            <!--                    <systemPropertyVariables>-->
+            <!--                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>-->
+            <!--                        <maven.home>${maven.home}</maven.home>-->
+            <!--                    </systemPropertyVariables>-->
+            <!--                </configuration>-->
+            <!--            </plugin>            -->
         </plugins>
     </build>
 

@@ -1,0 +1,11 @@
+quarkus:
+  http:
+    test-port: 0
+  smallrye-openapi:
+    store-schema-directory: openapi
+todo-api:
+  url: http://todo-api-svc:8080
+
+"%dev":
+  todo-api:
+   url: http://localhost:5130
