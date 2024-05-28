@@ -120,8 +120,30 @@
           "x-position": 2
         },
         "responses": {
-          "200": {
-            "description": "",
+          "204": {
+            "description": "Returns no content",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "If request is bad",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "If not found",
             "content": {
               "application/octet-stream": {
                 "schema": {

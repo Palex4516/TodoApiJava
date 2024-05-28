@@ -37,6 +37,10 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-rest-client-reactive-jackson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-openapi</artifactId>
         </dependency>
         <!--        <dependency>-->
@@ -87,6 +91,7 @@
                         </goals>
                         <configuration>
                             <inputSpec>openapi/todoapi_openapi.json</inputSpec>
+<!--                            <inputSpec>https://raw.githubusercontent.com/Palex4516/TodoApi/main/openapi.json</inputSpec>-->
                             <output>${project.build.directory}/generated-sources/openapi-generator-maven-plugin</output>                            
                             <apiPackage>org.example.generated.client</apiPackage>
                             <modelPackage>org.example.generated.models</modelPackage>
